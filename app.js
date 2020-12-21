@@ -34,7 +34,7 @@ server.post('/webhook', (req, res) => {
         let webhook_event = entry.messaging[0];
         console.log(webhook_event.message.text);
         
-        if (webhook_event.request_thread_control || webhook_event.pass_thread_control || webhook_event.take_thread_control) {
+        if (webhook_event.message.text=='Contactar con Agente') {
 
             // Change the thing
             let fbReqBody = {
