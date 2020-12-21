@@ -15,6 +15,10 @@ const
 // Sets server port and logs message on success
 server.listen(process.env.PORT || 3000, () => console.log('webhook is listening'));
 
+server.get('/', (req, res) => {
+  res.status(200).send(challenge);
+}
+
 // Creates the endpoint for our webhook 
 server.post('/webhook', (req, res) => {  
  
