@@ -33,8 +33,13 @@ server.post('/webhook', (req, res) => {
         // will only ever contain one message, so we get index 0
         let webhook_event = entry.messaging[0];
         
-        let contact = entry.messaging[0][3][1];
-        console.log(contact);
+        try{
+          let contact = entry.messaging[0][3][1];
+          console.log(contact);
+        }
+        catch (e) {
+          console.log(e);
+        }
         
         if (webhook_event.request_thread_control || webhook_event.pass_thread_control || webhook_event.take_thread_control) {
 
