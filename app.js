@@ -1,9 +1,9 @@
 'use strict';
 
-const DIALOGFLOW_WEBHOOK = process.env.DIALOGFLOW_WEBHOOK;
-const FACEBOOK_GRAPH_API_URL = process.env.FACEBOOK_GRAPH_API_URL;
-const FACEBOOK_ACCESS_TOKEN = process.env.FACEBOOK_ACCESS_TOKEN;
-const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
+const DIALOGFLOW_WEBHOOK = 'https://dialogflow.cloud.google.com/v1/integrations/facebook/webhook/f07da5e8-770e-4184-9a38-efad409fc9ab';
+const FACEBOOK_GRAPH_API_URL = 'https://graph.facebook.com/v9.0/';
+const FACEBOOK_ACCESS_TOKEN = '229921528801921%7CoRLh6eZcPJ738vY67fPUrWW2X5Q';
+const VERIFY_TOKEN = 'clover_20122020';
 
 // Imports dependencies and set up http server
 const
@@ -16,8 +16,8 @@ const
 server.listen(process.env.PORT || 8000, () => console.log('webhook is listening'));
 
 server.get('/', (req, res) => {
-  res.status(200).send(challenge);
-}
+  res.status(200).send();
+});
 
 // Creates the endpoint for our webhook 
 server.post('/webhook', (req, res) => {  
@@ -81,7 +81,7 @@ server.post('/webhook', (req, res) => {
 
 // Adds support for GET requests to our webhook
 server.get('/webhook', (req, res) => {
-      
+  console.log('start get');
     // Parse the query params
     let mode = req.query['hub.mode'];
     let token = req.query['hub.verify_token'];
@@ -103,4 +103,3 @@ server.get('/webhook', (req, res) => {
       }
     }
   });
-
