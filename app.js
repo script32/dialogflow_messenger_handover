@@ -32,7 +32,7 @@ server.post('/webhook', (req, res) => {
         // Gets the message. entry.messaging is an array, but 
         // will only ever contain one message, so we get index 0
         let webhook_event = entry.messaging[0];
-        console.log(webhook_event);
+        console.log(webhook_event.message.text);
         
         if (webhook_event.request_thread_control || webhook_event.pass_thread_control || webhook_event.take_thread_control) {
 
