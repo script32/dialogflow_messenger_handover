@@ -1,3 +1,7 @@
+# Deploy:
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+
 # Dialogflow handover integration for Facebook messenger (webhook).
 
 Integration for handover protocol of Facebook messenger and dialogflow (https://developers.facebook.com/docs/messenger-platform/handover-protocol).
